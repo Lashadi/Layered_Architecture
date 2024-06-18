@@ -1,17 +1,12 @@
 package com.example.layeredarchitecture.dao;
 
-import com.example.layeredarchitecture.db.DBConnection;
 
-import java.sql.*;
-import java.time.LocalDate;
+import com.example.layeredarchitecture.model.OrderDTO;
+
+import java.sql.SQLException;
 
 public interface OrderDAO {
-
-    public ResultSet generateNewOrderId() throws SQLException, ClassNotFoundException ;
-
-    public void existOrderId(String orderId) throws SQLException, ClassNotFoundException ;
-
-    public PreparedStatement saveOrder(String orderId, LocalDate orderDate, String customerId) throws SQLException, ClassNotFoundException ;
-
-
+    public String generateOID() throws SQLException, ClassNotFoundException;
+    public boolean existOrder(String orderId) throws SQLException, ClassNotFoundException;
+    public boolean saveOrder(OrderDTO dto) throws SQLException, ClassNotFoundException;
 }
